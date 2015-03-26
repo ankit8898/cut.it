@@ -1,7 +1,11 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
-#
-# Examples:
-#
-#   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
-#   Mayor.create(name: 'Emanuel', city: cities.first)
+Url.delete_all
+
+urls = ["https://www.facebook.com/ankit.8898",
+        "http://linkedin.com/pub/ankit-gupta/25/205/254",
+        "https://twitter.com/ankit8898",
+        "https://github.com/ankit8898"]
+
+urls.each do |url|
+  url = Url.create!(name: url)
+  puts "Created url: #{url.name}"
+end
