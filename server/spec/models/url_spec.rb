@@ -8,8 +8,8 @@ RSpec.describe Url, type: :model do
     expect(url).to respond_to(:name)
   end
 
-  it "should respond_to shortened " do
-    expect(url).to respond_to(:shortened)
+  it "should respond_to code " do
+    expect(url).to respond_to(:code)
   end
 
   describe "Url shortening" do
@@ -19,13 +19,13 @@ RSpec.describe Url, type: :model do
     let(:code) {sha_256.slice(0..3)}
 
     it "should trigger shorten callback and have shortened" do
-      expect(url.shortened).to eq("http://ktit.co/#{code}")
+      expect(url.shortened_url).to eq("http://foo.t/#/#{code}")
     end
   end
 
   describe "Base url" do
     it "should have a base url" do
-      expect(url.base_url).to eq("http://ktit.co")
+      expect(url.base_url).to eq("http://foo.t")
     end
   end
 

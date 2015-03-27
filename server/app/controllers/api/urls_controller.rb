@@ -6,10 +6,15 @@ module Api
       render json: @urls
     end
 
+    def show
+      @url = Url.find_by(code: params[:code])
+      render json: @url
+    end
+
     def create
-      logger.info("------#{url_params}")
-      @url = Url.new(url_params)
-      if @url.save
+      #@url = Url.new(url_params)
+      @url = Url.find_or_create_by(url_params)
+      if @url
         render json: @url
       else
         render json: @url.errors.full_messages
