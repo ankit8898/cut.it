@@ -5,10 +5,11 @@
     <title></title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width">
-    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
     <!-- build:css(.) styles/vendor.css -->
     <!-- bower:css -->
+    <link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.css" />
     <!-- endbower -->
     <!-- endbuild -->
     <!-- build:css(.tmp) styles/main.css -->
@@ -21,16 +22,26 @@
   <nav class="navbar navbar-inverse">
   <div class="container-fluid">
     <div class="navbar-header">
-      <a class="navbar-brand" href="#"> <i class="fa fa-scissors" ></i> Cut.it</a>
+      <a class="navbar-brand" href="#"> <i class="fa fa-scissors" ></i> kt.it</a>
     </div>
   </div>
 </nav>
   <div class="container">
-  <div class="jumbotro">
-  <h1 class='big'><i class="fa fa-scissors" style="color:#2196F3"></i> Cut.it  </h1>
-  <h1><small>Url Shortener - Where small is good!</small></h1>
+
+  <div class="row">
+  <div class="col-md-6">
+      <h1 class='big'><i class="fa fa-scissors" style="color:#2196F3"></i> kt.it</h1>
+  <h1><small>a.k.a Cut it</small></h1>
+  </div>
+  <div class="col-md-6">
+  <br/>
+  <h2>Get power of short urls! </h2>
+
+
+  </div>
 
 </div>
+
 
       <div ng-include="'views/main.html'" ng-controller="MainCtrl"></div>
 
