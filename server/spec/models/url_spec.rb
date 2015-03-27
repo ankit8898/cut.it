@@ -2,14 +2,49 @@ require "rails_helper"
 
 RSpec.describe Url, type: :model do
 
-  let(:url) {FactoryGirl.create(:url,name: 'http://foo.com')}
+  let!(:url) {FactoryGirl.create(:url,name: 'http://www.gupta.com')}
 
-  it "should have a name" do
-    expect(url.name).to eq("http://foo.com")
+  it "should respond_to name" do
+    expect(url).to respond_to(:name)
   end
 
-  it "should have a shortened url" do
-    expect(url.shortened).to eq("http://shor.ty/abcd")
+  it "should respond_to shortened " do
+    expect(url).to respond_to(:shortened)
   end
 
+  describe "Url shortening" do
+
+    let!(:url) {FactoryGirl.create(:url)}
+    let(:sha_256) {Digest::SHA256.hexdigest(url.name)}
+    let(:code) {sha_256.slice(0..3)}
+
+    it "should trigger shorten callback and have shortened" do
+      expect(url.shortened).to eq("http://ktit.co/#{code}")
+    end
+  end
+
+  describe "Base url" do
+    it "should have a base url" do
+      expect(url.base_url).to eq("http://ktit.co")
+    end
+  end
+
+  describe "sha_256 encoding" do
+
+    let(:sha_256) { Digest::SHA256.hexdigest("http://www.gupta.com")}
+
+    it "should have base 64 encoding of name" do
+      expect(url.sha_256).to eq(sha_256)
+    end
+  end
+
+
+  describe "code" do
+
+    let(:sha_256) { Digest::SHA256.hexdigest("http://www.gupta.com")}
+
+    it "should create code" do
+      expect(url.code).to eq(sha_256.slice(0..3))
+    end
+  end
 end
