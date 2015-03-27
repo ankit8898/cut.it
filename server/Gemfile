@@ -5,8 +5,14 @@ gem 'rails', '4.2.0'
 #For flexible serialization
 gem 'active_model_serializers'
 
-gem 'sqlite3'
+group :development do
+  gem 'sqlite3'
+end
 
+group :production do
+  gem 'pg'
+  gem 'rails_12factor'
+end
 
 group :test do
   gem 'database_cleaner'
