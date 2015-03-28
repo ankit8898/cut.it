@@ -68,6 +68,11 @@ $ bundle exec rake client_build
 # This deploys to heroky.  You have to be a collabotor
 $ bundle exec rake deploy_heroku
 ```
+
+## How is the unique code generated ?
+
+At a starting point we are generating the SHA256 of the url and picking up the code.
+
 <h4>Capistrano deployment</h4>
 
 We have a capistrano script that is tested on deploying locally (On same machine)
@@ -75,7 +80,7 @@ We have a capistrano script that is tested on deploying locally (On same machine
 $ bundle exec cap staging deploy
 ```
 
-## Want to contribute?
+## Want to contribute / Future improvement?
 
 Our backlog has [#todo](https://github.com/ankit8898/kt.it/issues)
 
