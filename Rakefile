@@ -14,14 +14,16 @@ task :setup do
   end
 end
 
+desc "client app setup"
 task :client_setup do
   ap "*** Starting AngularJS client setup *** "
   system("cd client &&
           npm cache clean &&
           npm install &&
-          bower install")
+          bower install && cd .. ")
 end
 
+desc "Server setup"
 task :server_setup do
   ap "*** Starting Rails server setup *** "
   system "cd server &&
@@ -31,13 +33,14 @@ task :server_setup do
           bundle exec rake db:seed --trace"
 end
 
-
+desc "Build client app"
 task :build_client do
   system "cd server && rm -rf public && cd .."
   system "cd client && grunt build"
 end
 
 
+desc "Deploy on heroku"
 task :deploy_heroku do
   system "git subtree push --prefix server heroku master"
 end
