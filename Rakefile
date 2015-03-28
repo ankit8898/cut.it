@@ -34,7 +34,7 @@ task :server_setup do
 end
 
 desc "Build client app"
-task :build_client do
+task :client_build do
   system "cd server && rm -rf public && cd .."
   system "cd client && grunt build"
 end
