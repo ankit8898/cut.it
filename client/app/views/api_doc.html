@@ -1,0 +1,82 @@
+<p class="lead">
+  <strong>
+  Kt.it can be accessed via API's too.  You can access the API for shortening urls
+  </strong>
+</p>
+<h4>Shorten a URL</h4>
+<p class="lead">
+  <strong>POST</strong>
+  /api/shorten
+</p>
+<div class="well well-lg">
+  $ curl -X POST http://www.ktit.co/api/shorten -d url['name']=http://bar.com
+</div>
+<p class="lead">Response</p>
+<div class="well well-lg">
+  <pre>
+  {
+    "id":9,
+    "name":"http://bar.com",
+    "code":"ec25",
+    "shortened_url":"http://ktit.co/#/ec25"
+  }
+</pre>
+</div>
+<h4>Details single URL</h4>
+<p class="lead">
+  <strong>GET</strong>
+  /api/url/:code
+</p>
+<div class="well well-lg">
+  $ curl -X http://www.ktit.co/api/url/ec25
+</div>
+<p class="lead">Response</p>
+<div class="well well-lg">
+  <pre>
+  {
+    "id":9,
+    "name":"http://bar.com",
+    "code":"ec25",
+    "shortened_url":"http://ktit.co/#/ec25"
+  }
+</pre>
+</div>
+<h4 class="aligh-right">Get all URL's - limited to last 100</h4>
+<p class="lead">
+  <strong>GET</strong>
+  /api/urls
+</p>
+<div class="well well-lg">
+  $ curl -i http://www.ktit.co/api/urls
+</div>
+<p class="lead">Response</p>
+<div class="well well-lg">
+  <pre>
+  [
+    {
+      "id":1,
+      "name":"https://www.facebook.com/ankit.8898",
+      "code":"2ae3",
+      "shortened_url":"http://ktit.co/#/2ae3"
+    },
+    {
+      "id":2,
+      "name": "http://linkedin.com/pub/ankit-gupta/25/205/254",
+      "code": "82ed",
+      "shortened_url": "http://ktit.co/#/82ed"
+    },
+    {
+      "id":3,
+      "name":"https://twitter.com/ankit8898",
+      "code":"9b72",
+      "shortened_url":"http://ktit.co/#/9b72"
+    },
+    {
+      "id":4,
+      "name":"https://github.com/ankit8898",
+      "code":"b4a1",
+      "shortened_url":"http://ktit.co/#/b4a1"
+    }
+  ]
+</pre>
+</div>

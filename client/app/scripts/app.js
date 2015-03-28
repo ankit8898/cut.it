@@ -10,21 +10,26 @@
  */
 var app = angular.module('urlshortenerApp', ['restangular','ui.router']);
 
-app.config(function($stateProvider, $urlRouterProvider,$locationProvider) {
+app.config(function($stateProvider, $urlRouterProvider) {
 
 
-  $urlRouterProvider.otherwise("/home");
+  $urlRouterProvider.otherwise('/');
 
   $stateProvider
     .state('home', {
-      url: "/home",
-      templateUrl: "views/home.html",
-      controller: "UrlCtrl"
+      url: '/',
+      templateUrl: 'views/home.html',
+      controller: 'UrlCtrl'
     })
 
-    .state("contacts", {
-      url: "/:code",
-      controller: "FetchUrlCtrl"
+    .state('apiDoc', {
+      url: '/docs',
+      templateUrl: 'views/api_doc.html',
+      controller: 'ApiDocCtrl'
+    })
+    .state('url', {
+      url: '/:code',
+      controller: 'FetchUrlCtrl'
     })
 
 });

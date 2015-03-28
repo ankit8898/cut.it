@@ -14,7 +14,8 @@ module Api
     def create
       #@url = Url.new(url_params)
       @url = Url.find_or_create_by(url_params)
-      if @url
+      puts @url.inspect
+      if @url.valid?
         render json: @url
       else
         render json: @url.errors.full_messages

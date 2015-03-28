@@ -14,13 +14,13 @@ app.service('Url', function Url(Restangular) {
 
     this.all = function(){
       return baseUrl.getList();
-    }
+    };
 
     this.create = function(obj){
       return shortenBaseUrl.post(obj);
-    }
+    };
 
     this.get = function(code) {
-        return Restangular.one("api/url",code).get();
-    }
+        return Restangular.one('api/url',code).get();
+    };
   });

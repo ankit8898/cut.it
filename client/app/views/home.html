@@ -7,7 +7,7 @@
    <form name='myForm' ng-submit="submit()">
       <div class="form-group ex1" ng-class="{'has-error': myForm.input.$error.required || myForm.input.$error.url}">
          <div class="input-group">
-            <input type="url" name="input" ng-model="form.url.name" required class="form-control" placeholder="ENTER YOUR URL" >
+            <input type="url" name="input" ng-model="form.url.name" required class="form-control input-lg" placeholder="ENTER YOUR URL" >
             <span class="input-group-btn">
             <button class="btn btn-primary" type="submit">Shorten</button>
             </span>
@@ -20,8 +20,13 @@
    </form>
    <h1 ng-show="url.shortened_url">We have it ready <a href={{url.shortened_url}} target='blank'>{{url.shortened_url}}</a> !</h1>
    <br>
-   <p class='lead'>RECENTLY SHORTENED LINKS</p>
-   <table class="table table-striped table-hover ">
+
+   <div class="col-md-6"><p class='lead'>RECENTLY SHORTENED LINKS</p></div>
+  <div class="col-md-6">   <div class="form-group has-warning">
+  <input class="form-control input-sm" type="text" id="inputSmall" ng-model="searchText" placeholder="SEARCH URL's">
+</div></div>
+
+   <table class="table table-hover ">
       <thead>
          <tr>
             <th>Url</th>
@@ -30,10 +35,10 @@
          </tr>
       </thead>
       <tbody>
-         <tr ng-repeat="url in urls">
+         <tr ng-repeat="url in urls | filter:searchText ">
             <td>{{url.name}}</td>
             <td><a href={{url.shortened_url}} target='blank'>{{url.shortened_url}}</a></td>
-            <th><span class="label label-success">copy</span></th>
+            <th><span class="label label-success" >3 visits</span></th>
          </tr>
       </tbody>
    </table>

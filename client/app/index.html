@@ -2,7 +2,7 @@
 <html class="no-js">
   <head>
     <meta charset="utf-8">
-    <title></title>
+    <title>Kt.it - Shortener</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width">
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
@@ -17,12 +17,20 @@
     <!-- endbuild -->
   </head>
   <body ng-app="urlshortenerApp">
+
     <nav class="navbar navbar-inverse">
+    <a href="https://github.com/ankit8898/kt.it"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/38ef81f8aca64bb9a64448d0d70f1308ef5341ab/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6461726b626c75655f3132313632312e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png"></a>
       <div class="container-fluid">
         <div class="navbar-header">
-          <a class="navbar-brand" href="#"> <i class="fa fa-scissors" ></i> kt.it</a>
+          <a class="navbar-brand" href="/"> <i class="fa fa-scissors" ></i> kt.it</a>
         </div>
+          <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="#/docs">API DOCS <span class="sr-only">(current)</span></a></li>
+      </ul>
+    </div>
       </div>
+
     </nav>
     <div class="container">
       <div class="row">
@@ -32,7 +40,12 @@
         </div>
         <div class="col-md-6">
           <br/>
-          <h2>Get p<i class="fa fa-circle-o-notch" style="color:#2196F3"></i>wer of short urls! </i> </h2>
+          <div class="panel panel-default">
+  <div class="panel-body">
+       <h2>Get p<i class="fa fa-bullseye" style="color:#2196F3"></i>wer of short urls! </i> </h2>
+  </div>
+</div>
+
         </div>
       </div>
       <div ui-view></div>
@@ -56,6 +69,7 @@
     <script src="scripts/app.js"></script>
     <script src="scripts/controllers/url.js"></script>
     <script src="scripts/controllers/fetch.js"></script>
+    <script src="scripts/controllers/apiDoc.js"></script>
     <script src="scripts/services/url.js"></script>
     <!-- endbuild -->
   </body>

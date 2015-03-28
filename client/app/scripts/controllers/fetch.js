@@ -10,6 +10,6 @@
 app.controller('FetchUrlCtrl', function ($scope,Url,$stateParams) {
 
   Url.get($stateParams.code).then(function(url){
-    window.open(url.name,"_self")
-  })
+    window.open(url.name,'_self');
+  });
 });

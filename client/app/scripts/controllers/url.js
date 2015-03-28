@@ -7,7 +7,7 @@
  * # UrlCtrl
  * Controller of the urlshortenerApp
  */
-app.controller('UrlCtrl', function ($scope,Url,$stateParams) {
+app.controller('UrlCtrl', function ($scope,Url) {
 
   $scope.form = {url: null};
 
@@ -21,6 +21,6 @@ app.controller('UrlCtrl', function ($scope,Url,$stateParams) {
       $scope.urls.push(url);
       $scope.form = {};
     });
-  }
+  };
 
 });
