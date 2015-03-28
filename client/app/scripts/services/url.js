@@ -21,6 +21,6 @@ app.service('Url', function Url(Restangular) {
     };
 
     this.get = function(code) {
-        return Restangular.one('api/url',code).get();
+        return Restangular.one('api/urls',code).get();
     };
   });
