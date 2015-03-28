@@ -5,7 +5,9 @@
 
 
 
+## Want to access the API directly ?
 
+We have a light weight API (Beta) that can be used directly for shortening.  Read docs [here](http://www.ktit.co/#/docs)
 ##Installation
 
 The application comes in two parts -
@@ -37,7 +39,7 @@ $ bundle install
 $ bundle exec rake db:create && bundle exec rake db:migrate && bundle exec rake db:seed
 ```
 <h4> Running application locally</h4>
-Application root has a Procfile that runs both client and server locally . Run application via [foreman](https://github.com/ddollar/foreman)
+Application root has a [Procfile](https://github.com/ankit8898/kt.it/blob/master/Procfile)  that runs both client and server locally . Run application via [foreman](https://github.com/ddollar/foreman)
 
 ```
 $ foreman start
@@ -48,14 +50,34 @@ $ 11:13:17 server.1 | started with pid 4561
 ##Testing
 
 We use rspec for testing rails api
+```ruby
+$ bundle exec rspec
+................
+
+Finished in 0.43356 seconds (files took 1.37 seconds to load)
+16 examples, 0 failures
+```
+##Deployment
+
+At present application is hosted on Heroku. You will have to be in collaborators to access it.
+
+<h4>Heroku deployment</h4>
+```ruby
+#We have to build the client application.  It does a grunt build and copies everything in server/public
+$ bundle exec rake client_build
+# This deploys to heroky.  You have to be a collabotor
+$ bundle exec rake deploy_heroku
+```
+<h4>Capistrano deployment</h4>
+
+We have a capistrano script that is tested on deploying locally (On same machine)
+```ruby
+$ bundle exec cap staging deploy
 ```
 
-```
+## Want to contribute?
 
+Our backlog has [#todo](https://github.com/ankit8898/kt.it/issues)
 
-##Deploy
-
-```
-```
 
 
