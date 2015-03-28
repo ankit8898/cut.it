@@ -32,7 +32,6 @@ task :server_setup do
 end
 
 
-
 task :build_client do
   system "cd server && rm -rf public && cd .."
   system "cd client && grunt build"
