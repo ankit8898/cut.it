@@ -2,12 +2,13 @@ module Api
   class UrlsController < ApplicationController
 
     def index
-      @urls = Url.all
+      @urls = Url.last(100)
       render json: @urls
     end
 
     def show
       @url = Url.find_by(code: params[:code])
+      @url.increment!(:visits)
       render json: @url
     end
 

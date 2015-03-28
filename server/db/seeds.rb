@@ -10,6 +10,6 @@ urls = ["https://www.facebook.com/ankit.8898",
         ]
 
 urls.each do |url|
-  url = Url.create!(name: url)
+  url = Url.create!(name: url,visits: [2,4,10].sample)
   puts "Created url: #{url.name}"
 end

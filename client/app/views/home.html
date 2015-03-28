@@ -31,14 +31,14 @@
          <tr>
             <th>Url</th>
             <th>Shortened</th>
-            <th></th>
+            <th>Visits</th>
          </tr>
       </thead>
       <tbody>
-         <tr ng-repeat="url in urls | filter:searchText ">
+         <tr ng-repeat="url in urls | orderBy:'-visits' | filter:searchText ">
             <td>{{url.name}}</td>
             <td><a href={{url.shortened_url}} target='blank'>{{url.shortened_url}}</a></td>
-            <th><span class="label label-success" >3 visits</span></th>
+            <td>{{url.visits}} <i class="fa fa-bar-chart text-warning"></i></td>
          </tr>
       </tbody>
    </table>
