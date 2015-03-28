@@ -37,3 +37,8 @@ task :build_client do
   system "cd server && rm -rf public && cd .."
   system "cd client && grunt build"
 end
+
+
+task :deploy_heroku do
+  system "git subtree push --prefix server heroku master"
+end
